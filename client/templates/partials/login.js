@@ -43,7 +43,7 @@ Template.login.events({
     }
     return false;
   },
-  'submit .panel-login': function() {
+  'submit .login-form': function(event) {
     // Get Form Values
     var email = event.target.email.value;
     var password = event.target.password.value;
@@ -58,8 +58,10 @@ Template.login.events({
         Router.go('/');
       }
     });
+
+    return false;
   },
-  'submit .panel-logout': function(event) {
+  'submit .logout-form': function(event) {
     Meteor.logout(function (err) {
       if(err) {
         FlashMessages.sendError(err.reason);
@@ -72,8 +74,6 @@ Template.login.events({
 });
 
 // Validation
-
-
 // Trim Helper
 var trimInput = function(val){
   return val.replace(/^\s*|\s*$/g, "");
