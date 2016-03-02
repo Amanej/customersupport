@@ -23,6 +23,7 @@ Template.mytickets.events({
     });
 
     $('#openTicketModal').modal('hide');
+    FlashMessages.sendSuccess('Ticket submitted');
 
     return false;
   }
