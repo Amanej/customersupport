@@ -26,5 +26,12 @@ Template.mytickets.events({
     FlashMessages.sendSuccess('Ticket submitted');
 
     return false;
+  },
+  'click .close-ticket': function() {
+    if(confirm("Are you sure ?")) {
+      Tickets.remove(this._id);
+      FlashMessages.sendSucces('Ticket Closed');
+      return false;
+    }
   }
 });
